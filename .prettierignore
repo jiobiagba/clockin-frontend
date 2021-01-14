@@ -1,0 +1,4 @@
+# Ignore artifacts
+compiled
+coverage
+node_modules
