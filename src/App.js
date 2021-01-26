@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
 
 import Header from "./components/layout/Header";
-import InputHolder from "./components/layout/page1/InputHolder"
-import ResponseDisplay from "./components/layout/page1/ResponseDisplay"
-import UserHolder from "./components/layout/page2/UserHolder"
+import InputHolder from "./components/layout/page1/InputHolder";
+import ResponseDisplay from "./components/layout/page1/ResponseDisplay";
+import UserHolder from "./components/layout/page2/UserHolder";
 class App extends Component {
   resBody = {
     error: false,
@@ -13,9 +13,9 @@ class App extends Component {
     result: {
       name: "Ada Ehi",
       department: "Department A",
-      clockin_time: new Date()
-    }
-  }
+      clockin_time: new Date(),
+    },
+  };
 
   state = {
     allClockIns: [
@@ -23,31 +23,31 @@ class App extends Component {
         name: "John Bosco",
         department: "Department A",
         clockin_time: new Date(1000000000000),
-        display: false
+        display: false,
       },
       {
         name: "Ada Ehi",
         department: "Department B",
         clockin_time: new Date(200000000000),
-        display: false
+        display: false,
       },
       {
         name: "Mata Paul",
         department: "Department C",
         clockin_time: new Date(300000000000),
-        display: false
+        display: false,
       },
       {
         name: "Ehis Julia",
         department: "Department D",
         clockin_time: new Date(400000000000),
-        display: false
-      }
-    ]
-  }
+        display: false,
+      },
+    ],
+  };
 
-  getClockInDetails (obj) {
-    console.log("Form Details:  ", obj)
+  getClockInDetails(obj) {
+    console.log("Form Details:  ", obj);
   }
 
   render() {
@@ -56,15 +56,15 @@ class App extends Component {
         <div className="App">
           <div className="container">
             <Header />
-              <Switch>
-                <Route exact path="/">
-                  <InputHolder getClockInDetails={this.getClockInDetails} />
-                  <ResponseDisplay resBody={this.resBody} />
-                </Route>
-                <Route path="/all-clockins">
-                  <UserHolder resBody={this.state.allClockIns} />
-                </Route>
-              </Switch>
+            <Switch>
+              <Route exact path="/">
+                <InputHolder getClockInDetails={this.getClockInDetails} />
+                <ResponseDisplay resBody={this.resBody} />
+              </Route>
+              <Route path="/all-clockins">
+                <UserHolder resBody={this.state.allClockIns} />
+              </Route>
+            </Switch>
           </div>
         </div>
       </Router>
